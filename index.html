@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NotifyLawlor - AI Solutions for EHR Processing</title>
+    <title>NotifyLawlor — AI for EHR Processing & Clinical Workflow</title>
+    <meta name="description" content="NotifyLawlor develops AI solutions for Electronic Health Record processing, clinical workflow intelligence, data interoperability, and healthcare analytics. Target launch 1Q 2027.">
     <style>
         :root {
             --bg-color: #0d1117;
             --card-bg: #161b22;
+            --card-bg-elevated: #1c2128;
             --text-main: #f0f6fc;
             --text-muted: #8b949e;
             --accent-blue: #2f81f7;
-            --accent-glow: rgba(47, 129, 247, 0.15);
+            --accent-glow: rgba(47, 129, 247, 0.12);
             --border-color: #30363d;
+            --success: #3fb950;
+            --warning: #d29922;
         }
 
         * {
@@ -25,22 +29,22 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            line-height: 1.5;
             min-height: 100vh;
-            padding: 20px;
         }
 
-        .container {
-            max-width: 620px;
-            width: 100%;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px 32px;
+        .page {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* Hero */
+        .hero {
             text-align: center;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            margin-bottom: 48px;
+            padding-bottom: 36px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .badge {
@@ -48,116 +52,450 @@
             background: var(--accent-glow);
             color: var(--accent-blue);
             border: 1px solid var(--accent-blue);
-            padding: 6px 14px;
+            padding: 5px 14px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
         }
 
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
+            font-size: 2.6rem;
+            letter-spacing: -0.8px;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
         .motto {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--accent-blue);
             font-weight: 500;
-            margin-bottom: 24px;
+            margin-bottom: 18px;
             font-style: italic;
         }
 
         .mission {
             font-size: 1.05rem;
             color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 32px;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.65;
         }
 
-        .details {
-            display: flex;
-            justify-content: space-around;
-            border-top: 1px solid var(--border-color);
-            padding-top: 24px;
-            margin-top: 24px;
-            flex-wrap: wrap;
+        /* Section titles */
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        /* Product Preview */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 16px;
         }
 
-        .detail-item h3 {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-            letter-spacing: 0.5px;
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: border-color 0.15s ease;
         }
 
-        .detail-item p, .detail-item a {
+        .product-card:hover {
+            border-color: #484f58;
+        }
+
+        .product-ui {
+            background: #0d1117;
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 14px 12px;
+            min-height: 140px;
+            position: relative;
+        }
+
+        .ui-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .ui-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+        }
+
+        .ui-dot.warning { background: var(--warning); }
+
+        .ui-bar {
+            height: 6px;
+            background: #21262d;
+            border-radius: 3px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .ui-bar-fill {
+            height: 100%;
+            background: var(--accent-blue);
+            border-radius: 3px;
+        }
+
+        .ui-row {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .ui-chip {
+            height: 18px;
+            background: #21262d;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        .ui-chip.accent {
+            background: rgba(47, 129, 247, 0.25);
+            border: 1px solid rgba(47, 129, 247, 0.4);
+        }
+
+        .ui-table {
+            margin-top: 8px;
+        }
+
+        .ui-table-row {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 0.6fr;
+            gap: 6px;
+            margin-bottom: 5px;
+        }
+
+        .ui-cell {
+            height: 12px;
+            background: #21262d;
+            border-radius: 2px;
+        }
+
+        .product-info {
+            padding: 14px 16px 16px;
+        }
+
+        .product-info h3 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .product-info p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        /* Team */
+        .team-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 22px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+        }
+
+        .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1f6feb, #388bfd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .team-info h3 {
+            font-size: 1.05rem;
+            margin-bottom: 2px;
+        }
+
+        .team-role {
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .team-bio {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .team-links a {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1px;
+        }
+
+        .team-links a:hover {
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        /* Contact row */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: space-between;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px 24px;
+        }
+
+        .contact-item h4 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .contact-item a, .contact-item span {
             font-size: 0.95rem;
             color: var(--text-main);
             text-decoration: none;
             font-weight: 500;
         }
 
-        .detail-item a:hover {
+        .contact-item a:hover {
             color: var(--accent-blue);
         }
 
-        .stealth {
+        /* Stealth note */
+        .stealth-note {
+            margin-top: 36px;
+            padding: 16px 18px;
+            background: rgba(210, 153, 34, 0.06);
+            border: 1px solid rgba(210, 153, 34, 0.25);
+            border-radius: 8px;
             font-size: 0.8rem;
             color: var(--text-muted);
-            line-height: 1.5;
-            margin-top: 28px;
-            margin-bottom: 8px;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
+            line-height: 1.55;
         }
 
-        .stealth a {
-            color: var(--text-muted);
-            text-decoration: none;
-        }
-
-        .stealth a:hover {
-            color: var(--accent-blue);
+        .stealth-note strong {
+            color: #e3b341;
+            font-weight: 600;
         }
 
         footer {
-            margin-top: 24px;
-            font-size: 0.8rem;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.78rem;
             color: var(--text-muted);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .team-card { flex-direction: column; align-items: center; text-align: center; }
+            .team-links { text-align: center; }
+            .contact-row { flex-direction: column; gap: 16px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <span class="badge">Target Launch: 1Q 2027</span>
-        <h1>NotifyLawlor</h1>
-        <p class="motto">"The Power is within your reach"</p>
-        <p class="mission">
-            Developing next-generation AI Solutions for Electronic Health Record (EHR) processing—streamlining clinical workflows, improving data interoperability, and accelerating healthcare data analytics.
-        </p>
-        
-        <div class="details">
-            <div class="detail-item">
-                <h3>Contact</h3>
-                <p><a href="mailto:info@notifylawlor.com">info@notifylawlor.com</a></p>
-            </div>
-            <div class="detail-item">
-                <h3>Developer Hub</h3>
-                <p><a href="https://github.com/notifylawlor" target="_blank">github.com/notifylawlor</a></p>
-            </div>
-        </div>
+    <div class="page">
+        <!-- Hero -->
+        <header class="hero">
+            <span class="badge">Target Launch · 1Q 2027</span>
+            <h1>NotifyLawlor</h1>
+            <p class="motto">“The Power is within your reach”</p>
+            <p class="mission">
+                AI solutions for Electronic Health Record (EHR) processing, clinical workflow intelligence, data interoperability, and healthcare analytics. Built for the next generation of care delivery systems.
+            </p>
+        </header>
 
-        <p class="stealth">
-            NotifyLawlor is currently in stealth mode. Product details, architecture, and commercialization plans are confidential and intended solely for evaluation by the Google for Startups Cloud Program and authorized reviewers. Unauthorized disclosure or distribution is prohibited.<br>
-            Contact: <a href="mailto:info@notifylawlor.com">info@notifylawlor.com</a>
-        </p>
+        <!-- Product Preview -->
+        <section class="section">
+            <div class="section-title">Platform Preview</div>
+            <div class="product-grid">
+                <!-- Card 1 -->
+                <div class="product-card">
+                    <div class="product-ui">
+                        <div class="ui-header">
+                            <span class="ui-dot"></span>
+                            <span>Clinical Note Intelligence · Live</span>
+                        </div>
+                        <div class="ui-bar"><div class="ui-bar-fill" style="width: 78%"></div></div>
+                        <div class="ui-row">
+                            <div class="ui-chip accent"></div>
+                            <div class="ui-chip"></div>
+                            <div class="ui-chip"></div>
+                        </div>
+                        <div class="ui-row">
+                            <div class="ui-chip"></div>
+                            <div class="ui-chip accent" style="flex: 1.4"></div>
+                        </div>
+                        <div class="ui-table">
+                            <div class="ui-table-row">
+                                <div class="ui-cell"></div>
+                                <div class="ui-cell"></div>
+                                <div class="ui-cell" style="background: rgba(63,185,80,0.35)"></div>
+                            </div>
+                            <div class="ui-table-row">
+                                <div class="ui-cell"></div>
+                                <div class="ui-cell"></div>
+                                <div class="ui-cell"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Clinical Note Intelligence</h3>
+                        <p>Automated extraction, structuring, and summarization of clinical documentation with confidence scoring and audit trails.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="product-card">
+                    <div class="product-ui">
+                        <div class="ui-header">
+                            <span class="ui-dot warning"></span>
+                            <span>Interoperability Graph · Active</span>
+                        </div>
+                        <div class="ui-bar"><div class="ui-bar-fill" style="width: 62%; background: var(--warning)"></div></div>
+                        <div class="ui-row">
+                            <div class="ui-chip"></div>
+                            <div class="ui-chip accent"></div>
+                            <div class="ui-chip"></div>
+                            <div class="ui-chip"></div>
+                        </div>
+                        <div class="ui-row">
+                            <div class="ui-chip accent" style="flex: 2"></div>
+                            <div class="ui-chip"></div>
+                        </div>
+                        <div class="ui-table">
+                            <div class="ui-table-row">
+                                <div class="ui-cell" style="background: rgba(47,129,247,0.3)"></div>
+                                <div class="ui-cell"></div>
+                                <div class="ui-cell"></div>
+                            </div>
+                            <div class="ui-table-row">
+                                <div class="ui-cell"></div>
+                                <div class="ui-cell" style="background: rgba(47,129,247,0.25)"></div>
+                                <div class="ui-cell"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Data Interoperability</h3>
+                        <p>Cross-system mapping and normalization layer for EHR data exchange, reducing friction between clinical systems and analytics pipelines.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="product-card">
+                    <div class="product-ui">
+                        <div class="ui-header">
+                            <span class="ui-dot"></span>
+                            <span>Analytics Workspace · Live</span>
+                        </div>
+                        <div class="ui-bar"><div class="ui-bar-fill" style="width: 91%"></div></div>
+                        <div class="ui-row">
+                            <div class="ui-chip accent"></div>
+                            <div class="ui-chip accent"></div>
+                            <div class="ui-chip"></div>
+                        </div>
+                        <div class="ui-row">
+                            <div class="ui-chip" style="flex: 1.6"></div>
+                            <div class="ui-chip"></div>
+                        </div>
+                        <div class="ui-table">
+                            <div class="ui-table-row">
+                                <div class="ui-cell"></div>
+                                <div class="ui-cell" style="background: rgba(63,185,80,0.3)"></div>
+                                <div class="ui-cell" style="background: rgba(63,185,80,0.4)"></div>
+                            </div>
+                            <div class="ui-table-row">
+                                <div class="ui-cell"></div>
+                                <div class="ui-cell"></div>
+                                <div class="ui-cell" style="background: rgba(63,185,80,0.25)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Healthcare Analytics</h3>
+                        <p>Operational and clinical analytics surfaces designed for rapid insight generation from structured and unstructured EHR data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="section">
+            <div class="section-title">Team</div>
+            <div class="team-card">
+                <div class="avatar">PL</div>
+                <div class="team-info">
+                    <h3>Phillip Lawlor</h3>
+                    <div class="team-role">Founder</div>
+                    <p class="team-bio">
+                        Building AI systems for clinical data and healthcare operations. Focused on practical, high-reliability tools that reduce administrative burden and improve data quality across care settings.
+                    </p>
+                    <div class="team-links">
+                        <a href="https://github.com/notifylawlor" target="_blank" rel="noopener">github.com/notifylawlor</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section">
+            <div class="section-title">Contact</div>
+            <div class="contact-row">
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <a href="mailto:info@notifylawlor.com">info@notifylawlor.com</a>
+                </div>
+                <div class="contact-item">
+                    <h4>Developer Hub</h4>
+                    <a href="https://github.com/notifylawlor" target="_blank" rel="noopener">github.com/notifylawlor</a>
+                </div>
+                <div class="contact-item">
+                    <h4>Status</h4>
+                    <span>Stealth · Pre-launch</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stealth note -->
+        <div class="stealth-note">
+            <strong>Stealth mode notice.</strong> Detailed product architecture, model design, and commercialization plans remain confidential and are shared only with authorized reviewers (including the Google for Startups Cloud Program). Public materials intentionally limit technical depth until formal launch.
+        </div>
 
         <footer>
             &copy; 2026 NotifyLawlor. All rights reserved.
