@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NotifyLawlor — AI for EHR Processing & Clinical Workflow</title>
-    <meta name="description" content="NotifyLawlor develops AI solutions for Electronic Health Record processing, clinical workflow intelligence, data interoperability, and healthcare analytics. Target launch 1Q 2027.">
+    <title>NotifyLawlor — AI Clinical NLP & EHR Workflow Automation</title>
+    <meta name="description" content="NotifyLawlor develops HIPAA-compliant AI pipelines for clinical entity extraction, automated ICD-10/CPT coding intelligence, and EHR interoperability.">
     <style>
         :root {
             --bg-color: #0d1117;
@@ -79,7 +79,7 @@
         .mission {
             font-size: 1.05rem;
             color: var(--text-muted);
-            max-width: 640px;
+            max-width: 680px;
             margin: 0 auto;
             line-height: 1.65;
         }
@@ -208,6 +208,33 @@
             line-height: 1.45;
         }
 
+        /* Architecture & Compliance Box */
+        .arch-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 22px 24px;
+        }
+
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .arch-item h4 {
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            margin-bottom: 4px;
+        }
+
+        .arch-item p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
         /* Team */
         .team-card {
             background: var(--card-bg);
@@ -296,23 +323,6 @@
             color: var(--accent-blue);
         }
 
-        /* Stealth note */
-        .stealth-note {
-            margin-top: 36px;
-            padding: 16px 18px;
-            background: rgba(210, 153, 34, 0.06);
-            border: 1px solid rgba(210, 153, 34, 0.25);
-            border-radius: 8px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.55;
-        }
-
-        .stealth-note strong {
-            color: #e3b341;
-            font-weight: 600;
-        }
-
         footer {
             margin-top: 40px;
             text-align: center;
@@ -332,26 +342,26 @@
     <div class="page">
         <!-- Hero -->
         <header class="hero">
-            <span class="badge">Target Launch · 1Q 2027</span>
+            <span class="badge">Healthcare AI Systems · Engineering Phase</span>
             <h1>NotifyLawlor</h1>
             <p class="motto">“The Power is within your reach”</p>
             <p class="mission">
-                AI solutions for Electronic Health Record (EHR) processing, clinical workflow intelligence, data interoperability, and healthcare analytics. Built for the next generation of care delivery systems.
+                Developing intelligent EHR orchestration, clinical NLP entity extraction, and automated ICD-10-CM / CPT medical coding copilot systems for healthcare operators and certified coding professionals.
             </p>
         </header>
 
         <!-- Product Preview -->
         <section class="section">
-            <div class="section-title">Platform Preview</div>
+            <div class="section-title">Core Platform Architecture</div>
             <div class="product-grid">
                 <!-- Card 1 -->
                 <div class="product-card">
                     <div class="product-ui">
                         <div class="ui-header">
                             <span class="ui-dot"></span>
-                            <span>Clinical Note Intelligence · Live</span>
+                            <span>Clinical NLP Abstraction · Active</span>
                         </div>
-                        <div class="ui-bar"><div class="ui-bar-fill" style="width: 78%"></div></div>
+                        <div class="ui-bar"><div class="ui-bar-fill" style="width: 84%"></div></div>
                         <div class="ui-row">
                             <div class="ui-chip accent"></div>
                             <div class="ui-chip"></div>
@@ -375,8 +385,8 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3>Clinical Note Intelligence</h3>
-                        <p>Automated extraction, structuring, and summarization of clinical documentation with confidence scoring and audit trails.</p>
+                        <h3>Clinical Entity Extraction</h3>
+                        <p>High-precision NLP pipeline parsing unstructured physician narratives, operative notes, and pathology reports into structured diagnostic concepts.</p>
                     </div>
                 </div>
 
@@ -385,9 +395,9 @@
                     <div class="product-ui">
                         <div class="ui-header">
                             <span class="ui-dot warning"></span>
-                            <span>Interoperability Graph · Active</span>
+                            <span>ICD-10 / CPT Vector Engine · Active</span>
                         </div>
-                        <div class="ui-bar"><div class="ui-bar-fill" style="width: 62%; background: var(--warning)"></div></div>
+                        <div class="ui-bar"><div class="ui-bar-fill" style="width: 72%; background: var(--warning)"></div></div>
                         <div class="ui-row">
                             <div class="ui-chip"></div>
                             <div class="ui-chip accent"></div>
@@ -412,8 +422,8 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3>Data Interoperability</h3>
-                        <p>Cross-system mapping and normalization layer for EHR data exchange, reducing friction between clinical systems and analytics pipelines.</p>
+                        <h3>Semantic Coding & NCCI Validation</h3>
+                        <p>Automated vector lookup matching clinical concepts to ICD-10-CM and CPT codes with real-time National Correct Coding Initiative (NCCI) edit validation.</p>
                     </div>
                 </div>
 
@@ -422,7 +432,7 @@
                     <div class="product-ui">
                         <div class="ui-header">
                             <span class="ui-dot"></span>
-                            <span>Analytics Workspace · Live</span>
+                            <span>FHIR & EHR Data Pipeline · Active</span>
                         </div>
                         <div class="ui-bar"><div class="ui-bar-fill" style="width: 91%"></div></div>
                         <div class="ui-row">
@@ -448,8 +458,29 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3>Healthcare Analytics</h3>
-                        <p>Operational and clinical analytics surfaces designed for rapid insight generation from structured and unstructured EHR data.</p>
+                        <h3>Compliant Query Automation</h3>
+                        <p>Automated generation of AHIMA/ACDIS-compliant, non-leading physician query templates to resolve ambiguous documentation in the EHR queue.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical & Governance Architecture -->
+        <section class="section">
+            <div class="section-title">Cloud Infrastructure & Compliance</div>
+            <div class="arch-card">
+                <div class="arch-grid">
+                    <div class="arch-item">
+                        <h4>HIPAA & Zero Retention</h4>
+                        <p>Strict tenant-isolated execution ensuring PHI remains ephemeral with zero unauthorized data retention.</p>
+                    </div>
+                    <div class="arch-item">
+                        <h4>Google Cloud Platform</h4>
+                        <p>Architected for Vertex AI private endpoints, BigQuery clinical pipelines, and Cloud Run microservices.</p>
+                    </div>
+                    <div class="arch-item">
+                        <h4>Human-in-the-Loop</h4>
+                        <p>Certified Professional Coder (CPC) decision support and deterministic audit logging at every abstraction step.</p>
                     </div>
                 </div>
             </div>
@@ -457,14 +488,14 @@
 
         <!-- Team -->
         <section class="section">
-            <div class="section-title">Team</div>
+            <div class="section-title">Leadership</div>
             <div class="team-card">
                 <div class="avatar">PL</div>
                 <div class="team-info">
-                    <h3>Phillip Lawlor</h3>
-                    <div class="team-role">Founder</div>
+                    <h3>Phil Lawlor</h3>
+                    <div class="team-role">Founder & Systems Architect</div>
                     <p class="team-bio">
-                        Building AI systems for clinical data and healthcare operations. Focused on practical, high-reliability tools that reduce administrative burden and improve data quality across care settings.
+                        Over three decades of large-scale systems integration, data network architecture, and distributed engineering. Engineering high-reliability AI solutions to automate clinical documentation workflows and modernize EHR processing.
                     </p>
                     <div class="team-links">
                         <a href="https://github.com/notifylawlor" target="_blank" rel="noopener">github.com/notifylawlor</a>
@@ -475,30 +506,25 @@
 
         <!-- Contact -->
         <section class="section">
-            <div class="section-title">Contact</div>
+            <div class="section-title">Corporate & Inquiries</div>
             <div class="contact-row">
                 <div class="contact-item">
-                    <h4>Email</h4>
+                    <h4>Direct Contact</h4>
                     <a href="mailto:info@notifylawlor.com">info@notifylawlor.com</a>
                 </div>
                 <div class="contact-item">
-                    <h4>Developer Hub</h4>
-                    <a href="https://github.com/notifylawlor" target="_blank" rel="noopener">github.com/notifylawlor</a>
+                    <h4>Entity</h4>
+                    <span>VeriSource Labs LLC</span>
                 </div>
                 <div class="contact-item">
-                    <h4>Status</h4>
-                    <span>Stealth · Pre-launch</span>
+                    <h4>Headquarters</h4>
+                    <span>Ann Arbor, Michigan</span>
                 </div>
             </div>
         </section>
 
-        <!-- Stealth note -->
-        <div class="stealth-note">
-            <strong>Stealth mode notice.</strong> Detailed product architecture, model design, and commercialization plans remain confidential and are shared only with authorized reviewers (including the Google for Startups Cloud Program). Public materials intentionally limit technical depth until formal launch.
-        </div>
-
         <footer>
-            &copy; 2026 NotifyLawlor. All rights reserved.
+            &copy; 2026 NotifyLawlor · A VeriSource Labs LLC Venture · All rights reserved.
         </footer>
     </div>
 </body>
